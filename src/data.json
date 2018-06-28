@@ -1,0 +1,140 @@
+[
+  {
+    "rows": [
+      "8 - 9",
+      "9 - 10",
+      "10 - 11",
+      "11 - 12",
+      "12 - 13",
+      "13 - 14",
+      "14 - 15",
+      "15 - 16",
+      "16 - 17",
+      "17 - 18",
+      "18 - 19",
+      "19 - 20",
+      "20 - 21",
+      "21 - 22"
+    ],
+    "columns": [
+      "lunes",
+      "martes",
+      "miercoles",
+      "jueves",
+      "viernes",
+      "sabado",
+      "domingo"
+    ],
+    "enabled": [
+      0,0,0,0,0,0,0,0,0,0,0,1,1,1,
+      0,0,0,0,0,0,0,0,0,0,0,1,1,1,
+      0,0,0,0,0,0,0,0,0,0,0,1,1,1,
+      0,0,0,0,0,0,0,0,0,0,0,1,1,1,
+      0,0,0,0,0,0,0,0,0,0,0,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,1,1,1,1
+    ],
+    "selection":[
+      false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+      false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+      false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+      false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+      false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+      false, false, false, false, true,  false, false, false, true,  false, true,  false, false, false,
+      false, false, false, false, false, false, false, false, false, false, true,  false, false, false
+    ],
+    "programas":[
+      {
+        "id_programa": 1,
+        "nom_programa": "Programa 1",
+        "cursos": [
+          {
+            "id_curso": 1,
+            "nom_curso": "Curso GAY"
+          },
+          {
+            "id_curso": 2,
+            "nom_curso": "Curso 2"
+          },
+          {
+            "id_curso": 3,
+            "nom_curso": "Curso 3"
+          },
+          {
+            "id_curso": 4,
+            "nom_curso": "Curso 4"
+          }
+        ]
+      },
+      {
+        "id_programa": 2,
+        "nom_programa": "Programa 2",
+        "cursos": [
+          {
+            "id_curso": 5,
+            "nom_curso": "Curso 11"
+          },
+          {
+            "id_curso": 6,
+            "nom_curso": "Curso 12"
+          }
+        ]
+      }
+    ],
+    "seleccion": [
+      {
+        "id_programa": 1,
+        "nom_programa": "Programa 1",
+        "cursos": [
+          {
+            "id_curso": 2,
+            "nom_curso": "Curso 2"
+          }
+        ]
+      },
+      {
+        "id_programa": 2,
+        "nom_programa": "Programa 2",
+        "cursos": [
+          {
+            "id_curso": 5,
+            "nom_curso": "Curso 11"
+          },
+          {
+            "id_curso": 6,
+            "nom_curso": "Curso 12"
+          }
+        ]
+      }
+    ],
+
+    "profesor":{
+      "id_docente": 1,
+      "nombres": "",
+      "fecha_nac": "",
+      "apell_pat": "",
+      "apell_mat": "",
+      "genero": "",
+      "email": "",
+      "pais": "",
+      "direccion": "",
+      "celular": "",
+      "codigo": "",
+      "Titulo":"",
+      "Maestria": "",
+      "Licenciatura":"",
+      "Especialidad":"",
+      "Doctorado":"",
+      "id_usuario": 1
+    }
+
+
+
+
+
+  }
+
+]
+
+
+

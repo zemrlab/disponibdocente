@@ -1,0 +1,1115 @@
+[
+  {
+    "id": "5b1857be729622bcc9b6f0b0",
+    "nombres": "Sharlene",
+    "apellidos": "Battle",
+    "dni": "fc2db6e3-b62a-448d-a9ee-0df709f49777",
+    "phone": "+51 (967) 534-2434",
+    "semestre": [
+      {
+        "id": "5b1857bedb8b7f49e795e0d3",
+        "nombre": "voluptate",
+        "cursos": [
+          {
+            "id": "5b1857beebf50a2b624f7a4e",
+            "nombre": "enim"
+          },
+          {
+            "id": "5b1857be3d652488c204e767",
+            "nombre": "esse"
+          },
+          {
+            "id": "5b1857bedd3be826201cc3f9",
+            "nombre": "sit"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be365207b4dffb40d0",
+            "nombre": "viernes",
+            "hinicio": 12,
+            "hfin": 22
+          },
+          {
+            "id": "5b1857beaf03f745cf3b7eb7",
+            "nombre": "sabado",
+            "hinicio": 17,
+            "hfin": 21
+          },
+          {
+            "id": "5b1857be09e222aa844b949b",
+            "nombre": "viernes",
+            "hinicio": 14,
+            "hfin": 11
+          }
+        ]
+      },
+      {
+        "id": "5b1857befcd407b1db0739b9",
+        "nombre": "aliquip",
+        "cursos": [
+          {
+            "id": "5b1857be54b8256c7174efa1",
+            "nombre": "excepteur"
+          },
+          {
+            "id": "5b1857be3af36e4f8b0336d0",
+            "nombre": "laboris"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be6da346f6ccee4947",
+            "nombre": "domingo",
+            "hinicio": 21,
+            "hfin": 10
+          },
+          {
+            "id": "5b1857be42633275601c8c6c",
+            "nombre": "miercoles",
+            "hinicio": 8,
+            "hfin": 10
+          },
+          {
+            "id": "5b1857bec6c3c75b7ba74dd0",
+            "nombre": "martes",
+            "hinicio": 13,
+            "hfin": 13
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857bea61ea7424aafaaf4",
+    "nombres": "Ferguson",
+    "apellidos": "Carrillo",
+    "dni": "f7b8dd22-c319-40fe-b34b-21c76d29eab9",
+    "phone": "+51 (966) 477-3370",
+    "semestre": [
+      {
+        "id": "5b1857bee723cfd094ebb70e",
+        "nombre": "in",
+        "cursos": [
+          {
+            "id": "5b1857be0dcdc073e9795e5b",
+            "nombre": "ad"
+          },
+          {
+            "id": "5b1857beee689b06e759f66d",
+            "nombre": "consequat"
+          },
+          {
+            "id": "5b1857be270076746cae829c",
+            "nombre": "culpa"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857bebc1758deae36e63f",
+            "nombre": "miercoles",
+            "hinicio": 13,
+            "hfin": 19
+          },
+          {
+            "id": "5b1857bee0bf45d71d2ef088",
+            "nombre": "lunes",
+            "hinicio": 12,
+            "hfin": 10
+          },
+          {
+            "id": "5b1857be196d9fd65409b26f",
+            "nombre": "miercoles",
+            "hinicio": 19,
+            "hfin": 14
+          },
+          {
+            "id": "5b1857befb24879caae03d3c",
+            "nombre": "domingo",
+            "hinicio": 22,
+            "hfin": 20
+          }
+        ]
+      },
+      {
+        "id": "5b1857be205e476282949df9",
+        "nombre": "est",
+        "cursos": [
+          {
+            "id": "5b1857becb92a7e41d761fc2",
+            "nombre": "id"
+          },
+          {
+            "id": "5b1857be84dd99a1fb14e4f1",
+            "nombre": "eu"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be218d4bb3ad8637de",
+            "nombre": "sabado",
+            "hinicio": 12,
+            "hfin": 19
+          },
+          {
+            "id": "5b1857be02c4954c87620e38",
+            "nombre": "jueves",
+            "hinicio": 14,
+            "hfin": 22
+          },
+          {
+            "id": "5b1857be0cf7a9a04b835ee9",
+            "nombre": "domingo",
+            "hinicio": 14,
+            "hfin": 18
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857be1446a13dc0345f68",
+    "nombres": "Parsons",
+    "apellidos": "Acevedo",
+    "dni": "fd822341-d173-4fa2-9490-295bb9f24143",
+    "phone": "+51 (854) 474-2648",
+    "semestre": [
+      {
+        "id": "5b1857beaec65f269a5a90b4",
+        "nombre": "pariatur",
+        "cursos": [
+          {
+            "id": "5b1857befc9bd12b281e59f6",
+            "nombre": "consequat"
+          },
+          {
+            "id": "5b1857be708b9db03ef06aec",
+            "nombre": "duis"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be1991ae9ed8825083",
+            "nombre": "martes",
+            "hinicio": 16,
+            "hfin": 12
+          },
+          {
+            "id": "5b1857beb0c95dcf65e71dc9",
+            "nombre": "viernes",
+            "hinicio": 15,
+            "hfin": 21
+          },
+          {
+            "id": "5b1857bedd030b8455e6c8d1",
+            "nombre": "viernes",
+            "hinicio": 18,
+            "hfin": 22
+          }
+        ]
+      },
+      {
+        "id": "5b1857be751e4e0fc861db39",
+        "nombre": "incididunt",
+        "cursos": [
+          {
+            "id": "5b1857be467f5219b3c29f2d",
+            "nombre": "ex"
+          },
+          {
+            "id": "5b1857be42c704780f81ce33",
+            "nombre": "aliquip"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857bec4c86401cd42d0d8",
+            "nombre": "lunes",
+            "hinicio": 9,
+            "hfin": 14
+          },
+          {
+            "id": "5b1857beedcddd876bbe92d8",
+            "nombre": "miercoles",
+            "hinicio": 9,
+            "hfin": 15
+          },
+          {
+            "id": "5b1857be2b735e25724eb981",
+            "nombre": "miercoles",
+            "hinicio": 13,
+            "hfin": 14
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857bedaa68cbd22106fd2",
+    "nombres": "Carver",
+    "apellidos": "Ingram",
+    "dni": "a280aa9b-7dfe-449e-afa7-a28a76e201ea",
+    "phone": "+51 (897) 546-2305",
+    "semestre": [
+      {
+        "id": "5b1857beb8798f146afc5d5e",
+        "nombre": "dolor",
+        "cursos": [
+          {
+            "id": "5b1857be4eebe37263081fc0",
+            "nombre": "ut"
+          },
+          {
+            "id": "5b1857bebd78f20550ba2af9",
+            "nombre": "ea"
+          },
+          {
+            "id": "5b1857be94c77fe493b6f3ee",
+            "nombre": "minim"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be79859eb94ab12cc4",
+            "nombre": "martes",
+            "hinicio": 21,
+            "hfin": 9
+          },
+          {
+            "id": "5b1857be8f2416a5f231bdfb",
+            "nombre": "jueves",
+            "hinicio": 19,
+            "hfin": 14
+          }
+        ]
+      },
+      {
+        "id": "5b1857be86c555c8e1ebb9f2",
+        "nombre": "dolore",
+        "cursos": [
+          {
+            "id": "5b1857be12ab1a015e245427",
+            "nombre": "cupidatat"
+          },
+          {
+            "id": "5b1857bef4478bab725b4fb3",
+            "nombre": "nostrud"
+          },
+          {
+            "id": "5b1857be661888f89167b0b3",
+            "nombre": "duis"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be8ffd7a676cbece43",
+            "nombre": "lunes",
+            "hinicio": 10,
+            "hfin": 20
+          },
+          {
+            "id": "5b1857beabae19fc28ac77ec",
+            "nombre": "sabado",
+            "hinicio": 18,
+            "hfin": 18
+          },
+          {
+            "id": "5b1857be833f3a6815aa6d7b",
+            "nombre": "martes",
+            "hinicio": 13,
+            "hfin": 21
+          },
+          {
+            "id": "5b1857be097e6bd8672cacbc",
+            "nombre": "viernes",
+            "hinicio": 13,
+            "hfin": 12
+          }
+        ]
+      },
+      {
+        "id": "5b1857be7fee707dcb0bfded",
+        "nombre": "ex",
+        "cursos": [
+          {
+            "id": "5b1857bed14caa499b8560f3",
+            "nombre": "incididunt"
+          },
+          {
+            "id": "5b1857be60e4702d1c67b4db",
+            "nombre": "sit"
+          },
+          {
+            "id": "5b1857bed011113c6484a4d5",
+            "nombre": "elit"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be0d5c31243874865c",
+            "nombre": "lunes",
+            "hinicio": 15,
+            "hfin": 10
+          },
+          {
+            "id": "5b1857be8ce2acff8feaeaec",
+            "nombre": "viernes",
+            "hinicio": 12,
+            "hfin": 20
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857bec970c95c3e8a7b9a",
+    "nombres": "Ashley",
+    "apellidos": "Swanson",
+    "dni": "72b24cbf-c1ba-4fbd-b4e2-6c0d92cc406c",
+    "phone": "+51 (822) 462-2030",
+    "semestre": [
+      {
+        "id": "5b1857beb62771f09e1e7681",
+        "nombre": "excepteur",
+        "cursos": [
+          {
+            "id": "5b1857be66131ac2b0d09ad4",
+            "nombre": "nulla"
+          },
+          {
+            "id": "5b1857beb212ae0ebf4d34a8",
+            "nombre": "duis"
+          },
+          {
+            "id": "5b1857be81a6bb348e55a8d3",
+            "nombre": "consectetur"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857bec2c883eef3f03453",
+            "nombre": "jueves",
+            "hinicio": 22,
+            "hfin": 21
+          },
+          {
+            "id": "5b1857be32e673bd4643a47a",
+            "nombre": "lunes",
+            "hinicio": 11,
+            "hfin": 8
+          }
+        ]
+      },
+      {
+        "id": "5b1857be6e69bc3729c510d1",
+        "nombre": "eiusmod",
+        "cursos": [
+          {
+            "id": "5b1857be968de4e31b616312",
+            "nombre": "do"
+          },
+          {
+            "id": "5b1857bedfcdbb23dde2c4a7",
+            "nombre": "eiusmod"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be3b5acc9f7842f60e",
+            "nombre": "lunes",
+            "hinicio": 12,
+            "hfin": 20
+          },
+          {
+            "id": "5b1857bef19432cb9b9be0b7",
+            "nombre": "domingo",
+            "hinicio": 21,
+            "hfin": 21
+          },
+          {
+            "id": "5b1857be13e1b7d96f0bbc20",
+            "nombre": "viernes",
+            "hinicio": 8,
+            "hfin": 11
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857bebcd8cb17673f1d8f",
+    "nombres": "Carmen",
+    "apellidos": "Reese",
+    "dni": "bdec3e67-e1c3-48d3-9fa8-e6662c11ed51",
+    "phone": "+51 (963) 427-2520",
+    "semestre": [
+      {
+        "id": "5b1857be156dc72988ee725d",
+        "nombre": "ea",
+        "cursos": [
+          {
+            "id": "5b1857bec57e2deed335c7f0",
+            "nombre": "labore"
+          },
+          {
+            "id": "5b1857be06a0b71d33aa3e56",
+            "nombre": "deserunt"
+          },
+          {
+            "id": "5b1857be5fa38a638032b5a6",
+            "nombre": "laboris"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be3832fe77f4e6fc9c",
+            "nombre": "viernes",
+            "hinicio": 8,
+            "hfin": 12
+          },
+          {
+            "id": "5b1857beb315db1ffe1d6810",
+            "nombre": "domingo",
+            "hinicio": 10,
+            "hfin": 14
+          }
+        ]
+      },
+      {
+        "id": "5b1857be12676c07d2a6103d",
+        "nombre": "tempor",
+        "cursos": [
+          {
+            "id": "5b1857bed89425db9b64ea09",
+            "nombre": "magna"
+          },
+          {
+            "id": "5b1857befb5635915eef5b84",
+            "nombre": "duis"
+          },
+          {
+            "id": "5b1857be189422d1bd4d86c8",
+            "nombre": "laboris"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be86fd9b3015fab1a5",
+            "nombre": "martes",
+            "hinicio": 22,
+            "hfin": 12
+          },
+          {
+            "id": "5b1857be489145dc0c68e27d",
+            "nombre": "domingo",
+            "hinicio": 13,
+            "hfin": 11
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857be29466594f55ce46d",
+    "nombres": "Lynne",
+    "apellidos": "Harrell",
+    "dni": "7bfc7bc6-d1a2-4fab-865f-3b7b3fd7e6ab",
+    "phone": "+51 (912) 496-2747",
+    "semestre": [
+      {
+        "id": "5b1857beae62be6e6a50f518",
+        "nombre": "deserunt",
+        "cursos": [
+          {
+            "id": "5b1857be80c2bf7803e762f1",
+            "nombre": "mollit"
+          },
+          {
+            "id": "5b1857be7bca38210d4a4ffc",
+            "nombre": "id"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be69f54d42ab438f71",
+            "nombre": "jueves",
+            "hinicio": 22,
+            "hfin": 8
+          },
+          {
+            "id": "5b1857be8ba718dbc80e3635",
+            "nombre": "martes",
+            "hinicio": 19,
+            "hfin": 10
+          },
+          {
+            "id": "5b1857bed3b30810534eef30",
+            "nombre": "sabado",
+            "hinicio": 11,
+            "hfin": 9
+          }
+        ]
+      },
+      {
+        "id": "5b1857bea9301ce319fa458e",
+        "nombre": "duis",
+        "cursos": [
+          {
+            "id": "5b1857be25f3bee7243349d6",
+            "nombre": "cupidatat"
+          },
+          {
+            "id": "5b1857be50493ebd7e298a13",
+            "nombre": "in"
+          },
+          {
+            "id": "5b1857befe412e03480d7d39",
+            "nombre": "commodo"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be3e71a112cd60a65f",
+            "nombre": "martes",
+            "hinicio": 8,
+            "hfin": 22
+          },
+          {
+            "id": "5b1857be5c3c0bf7983a655e",
+            "nombre": "jueves",
+            "hinicio": 15,
+            "hfin": 16
+          },
+          {
+            "id": "5b1857befbe1efdadcf11993",
+            "nombre": "viernes",
+            "hinicio": 20,
+            "hfin": 15
+          },
+          {
+            "id": "5b1857be423e9424f8948fb4",
+            "nombre": "viernes",
+            "hinicio": 10,
+            "hfin": 9
+          }
+        ]
+      },
+      {
+        "id": "5b1857be3e0eeab3d68fa194",
+        "nombre": "do",
+        "cursos": [
+          {
+            "id": "5b1857be16a5c0a8dfba9730",
+            "nombre": "pariatur"
+          },
+          {
+            "id": "5b1857be7336feb8d8b2e3ff",
+            "nombre": "ullamco"
+          },
+          {
+            "id": "5b1857be6ecb43168c9ccc57",
+            "nombre": "ex"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be4f17de1ddbca3a88",
+            "nombre": "viernes",
+            "hinicio": 18,
+            "hfin": 21
+          },
+          {
+            "id": "5b1857be6c75b7a08e3107e3",
+            "nombre": "jueves",
+            "hinicio": 9,
+            "hfin": 16
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857be03fcfa076a3bfe7e",
+    "nombres": "Sweet",
+    "apellidos": "Duffy",
+    "dni": "ea1670f6-cfa4-4d38-8f67-307abab666a8",
+    "phone": "+51 (847) 404-2075",
+    "semestre": [
+      {
+        "id": "5b1857be06d3210a4681adf2",
+        "nombre": "enim",
+        "cursos": [
+          {
+            "id": "5b1857be533d7c372bb114ee",
+            "nombre": "nulla"
+          },
+          {
+            "id": "5b1857bed47946516eaeaf6b",
+            "nombre": "ipsum"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be05ad5691b7b16cc5",
+            "nombre": "miercoles",
+            "hinicio": 10,
+            "hfin": 13
+          },
+          {
+            "id": "5b1857bed15c46e6786a1182",
+            "nombre": "miercoles",
+            "hinicio": 15,
+            "hfin": 17
+          },
+          {
+            "id": "5b1857be9be942847f58f08c",
+            "nombre": "viernes",
+            "hinicio": 9,
+            "hfin": 14
+          },
+          {
+            "id": "5b1857be53a912583d585607",
+            "nombre": "miercoles",
+            "hinicio": 15,
+            "hfin": 17
+          }
+        ]
+      },
+      {
+        "id": "5b1857be2b273ea960222e9a",
+        "nombre": "exercitation",
+        "cursos": [
+          {
+            "id": "5b1857beeeea726acedc1a1d",
+            "nombre": "occaecat"
+          },
+          {
+            "id": "5b1857be2f73878f8bd472f0",
+            "nombre": "minim"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be1e9643f24dc29a1b",
+            "nombre": "jueves",
+            "hinicio": 15,
+            "hfin": 21
+          },
+          {
+            "id": "5b1857be15d108a2b305f18d",
+            "nombre": "sabado",
+            "hinicio": 22,
+            "hfin": 18
+          },
+          {
+            "id": "5b1857be0c8176c41f367c41",
+            "nombre": "miercoles",
+            "hinicio": 11,
+            "hfin": 11
+          }
+        ]
+      },
+      {
+        "id": "5b1857be72f9c6eafb499944",
+        "nombre": "proident",
+        "cursos": [
+          {
+            "id": "5b1857beb1fe747dc7bacab2",
+            "nombre": "velit"
+          },
+          {
+            "id": "5b1857be838eae2283f1449c",
+            "nombre": "aliqua"
+          },
+          {
+            "id": "5b1857be2ff8cf508093a61c",
+            "nombre": "exercitation"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be1edcc5224286ec86",
+            "nombre": "lunes",
+            "hinicio": 16,
+            "hfin": 12
+          },
+          {
+            "id": "5b1857bebe7282da9c4f5471",
+            "nombre": "viernes",
+            "hinicio": 18,
+            "hfin": 16
+          },
+          {
+            "id": "5b1857bec645645cea3633f4",
+            "nombre": "sabado",
+            "hinicio": 17,
+            "hfin": 16
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857be55d21640e23b594f",
+    "nombres": "Adela",
+    "apellidos": "Sheppard",
+    "dni": "6b38f02e-cc50-41d3-bea0-56a46f347927",
+    "phone": "+51 (882) 569-2265",
+    "semestre": [
+      {
+        "id": "5b1857bef6488609aa4e1feb",
+        "nombre": "ullamco",
+        "cursos": [
+          {
+            "id": "5b1857bea1b90c29b6ff4d90",
+            "nombre": "consequat"
+          },
+          {
+            "id": "5b1857beb92a43d8d8c0d61d",
+            "nombre": "Lorem"
+          },
+          {
+            "id": "5b1857be00d9e206f6ed7f48",
+            "nombre": "ipsum"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be28bdb57984cc67e6",
+            "nombre": "sabado",
+            "hinicio": 21,
+            "hfin": 18
+          },
+          {
+            "id": "5b1857be89931ade44bff0fa",
+            "nombre": "miercoles",
+            "hinicio": 20,
+            "hfin": 18
+          },
+          {
+            "id": "5b1857beb7514e7f6649f8ee",
+            "nombre": "sabado",
+            "hinicio": 11,
+            "hfin": 21
+          }
+        ]
+      },
+      {
+        "id": "5b1857be603fa6b141679247",
+        "nombre": "culpa",
+        "cursos": [
+          {
+            "id": "5b1857be620dc4414a3ab4d4",
+            "nombre": "voluptate"
+          },
+          {
+            "id": "5b1857be1367076ffa9bd93f",
+            "nombre": "ea"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be8e6bac21a8d56c04",
+            "nombre": "sabado",
+            "hinicio": 14,
+            "hfin": 15
+          },
+          {
+            "id": "5b1857be9c279f9d9fe1516e",
+            "nombre": "lunes",
+            "hinicio": 10,
+            "hfin": 15
+          }
+        ]
+      },
+      {
+        "id": "5b1857be7a69120b2da7328d",
+        "nombre": "enim",
+        "cursos": [
+          {
+            "id": "5b1857be95609f3a73267e5c",
+            "nombre": "reprehenderit"
+          },
+          {
+            "id": "5b1857bea312a0e746f2d7d8",
+            "nombre": "aliqua"
+          },
+          {
+            "id": "5b1857be333701dfdad201bb",
+            "nombre": "fugiat"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be3079181f775da25b",
+            "nombre": "viernes",
+            "hinicio": 18,
+            "hfin": 9
+          },
+          {
+            "id": "5b1857bebf52aebcdc10b465",
+            "nombre": "viernes",
+            "hinicio": 9,
+            "hfin": 18
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857bea232c1f0efe6c4c3",
+    "nombres": "Cole",
+    "apellidos": "Hardin",
+    "dni": "332b131f-12b0-40d2-9eb9-2cfd976d422d",
+    "phone": "+51 (902) 510-3325",
+    "semestre": [
+      {
+        "id": "5b1857be98b692d364c974c5",
+        "nombre": "ullamco",
+        "cursos": [
+          {
+            "id": "5b1857be358e8f9f4170f4df",
+            "nombre": "veniam"
+          },
+          {
+            "id": "5b1857beed92deb8012355ed",
+            "nombre": "exercitation"
+          },
+          {
+            "id": "5b1857bef09e0b869beff019",
+            "nombre": "minim"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be5489081e087eed22",
+            "nombre": "sabado",
+            "hinicio": 18,
+            "hfin": 11
+          },
+          {
+            "id": "5b1857be6e70330a0d09a4a7",
+            "nombre": "sabado",
+            "hinicio": 11,
+            "hfin": 16
+          },
+          {
+            "id": "5b1857bea646686dd33a69d2",
+            "nombre": "lunes",
+            "hinicio": 15,
+            "hfin": 8
+          }
+        ]
+      },
+      {
+        "id": "5b1857be234a8abd2faddda4",
+        "nombre": "laborum",
+        "cursos": [
+          {
+            "id": "5b1857be8f8090f1ac240a44",
+            "nombre": "sint"
+          },
+          {
+            "id": "5b1857be00ae3677af4e1d8b",
+            "nombre": "exercitation"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be241388b2e7e7fe58",
+            "nombre": "miercoles",
+            "hinicio": 10,
+            "hfin": 17
+          },
+          {
+            "id": "5b1857be8b10c9b8c907a9db",
+            "nombre": "sabado",
+            "hinicio": 10,
+            "hfin": 18
+          },
+          {
+            "id": "5b1857be6d93c7586fd54f58",
+            "nombre": "sabado",
+            "hinicio": 8,
+            "hfin": 15
+          }
+        ]
+      },
+      {
+        "id": "5b1857be50d1d9db1fd0283b",
+        "nombre": "laborum",
+        "cursos": [
+          {
+            "id": "5b1857be2a0f14b70d4e7605",
+            "nombre": "consectetur"
+          },
+          {
+            "id": "5b1857be1dbe434b47af9b63",
+            "nombre": "cillum"
+          },
+          {
+            "id": "5b1857be28e29af29de86a50",
+            "nombre": "id"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857bee8ca01bcaea05d92",
+            "nombre": "viernes",
+            "hinicio": 9,
+            "hfin": 9
+          },
+          {
+            "id": "5b1857bea19a685635f5ffe5",
+            "nombre": "viernes",
+            "hinicio": 21,
+            "hfin": 20
+          },
+          {
+            "id": "5b1857bef6d43841e1876b59",
+            "nombre": "miercoles",
+            "hinicio": 17,
+            "hfin": 16
+          },
+          {
+            "id": "5b1857be159cfe2eb07e975f",
+            "nombre": "sabado",
+            "hinicio": 8,
+            "hfin": 19
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b1857bed654017bab472944",
+    "nombres": "Patty",
+    "apellidos": "Nunez",
+    "dni": "cab6dafe-036d-4741-af5b-ebba671b28df",
+    "phone": "+51 (997) 454-2487",
+    "semestre": [
+      {
+        "id": "5b1857be0c2b7e19b6c354e6",
+        "nombre": "id",
+        "cursos": [
+          {
+            "id": "5b1857be946c5eb8425c7429",
+            "nombre": "eu"
+          },
+          {
+            "id": "5b1857be098d86b518a57f74",
+            "nombre": "pariatur"
+          },
+          {
+            "id": "5b1857beb46cf689092c8ff8",
+            "nombre": "consectetur"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857beb796d5c8b55473ab",
+            "nombre": "viernes",
+            "hinicio": 17,
+            "hfin": 18
+          },
+          {
+            "id": "5b1857be95e4f197e1c76433",
+            "nombre": "sabado",
+            "hinicio": 14,
+            "hfin": 13
+          },
+          {
+            "id": "5b1857bef7e223ea06fc33de",
+            "nombre": "viernes",
+            "hinicio": 10,
+            "hfin": 10
+          },
+          {
+            "id": "5b1857bede51b49a652c81ce",
+            "nombre": "sabado",
+            "hinicio": 14,
+            "hfin": 9
+          }
+        ]
+      },
+      {
+        "id": "5b1857be0a4ced71000ae52e",
+        "nombre": "amet",
+        "cursos": [
+          {
+            "id": "5b1857be546de30f6a4e4e54",
+            "nombre": "consequat"
+          },
+          {
+            "id": "5b1857be6f0c5ce5a3b14c6e",
+            "nombre": "veniam"
+          },
+          {
+            "id": "5b1857beadb3e05cca346669",
+            "nombre": "aute"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be293a936f7821abc3",
+            "nombre": "miercoles",
+            "hinicio": 10,
+            "hfin": 22
+          },
+          {
+            "id": "5b1857be8a0776bbdc7bd1fa",
+            "nombre": "viernes",
+            "hinicio": 10,
+            "hfin": 8
+          },
+          {
+            "id": "5b1857be301c9a3c65bcb352",
+            "nombre": "sabado",
+            "hinicio": 18,
+            "hfin": 17
+          },
+          {
+            "id": "5b1857bebc9ada16e464c0fd",
+            "nombre": "sabado",
+            "hinicio": 10,
+            "hfin": 15
+          }
+        ]
+      },
+      {
+        "id": "5b1857bee82b970f08c61386",
+        "nombre": "minim",
+        "cursos": [
+          {
+            "id": "5b1857bed56d80bf43512c07",
+            "nombre": "do"
+          },
+          {
+            "id": "5b1857bee581d709ecd43e43",
+            "nombre": "enim"
+          }
+        ],
+        "disponibilidad": [
+          {
+            "id": "5b1857be9b38d666ddc7fc5d",
+            "nombre": "lunes",
+            "hinicio": 11,
+            "hfin": 20
+          },
+          {
+            "id": "5b1857be8c0e41e7894ab50e",
+            "nombre": "miercoles",
+            "hinicio": 14,
+            "hfin": 17
+          },
+          {
+            "id": "5b1857be276b81f000fd4c69",
+            "nombre": "sabado",
+            "hinicio": 17,
+            "hfin": 12
+          }
+        ]
+      }
+    ]
+  }
+]

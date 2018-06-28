@@ -1,0 +1,28 @@
+{
+  "ciclos":[
+  {
+    "nom_ciclo": "2017-0",
+    "fecha_inicio":"01/03/17",
+    "fecha_fin":"05/03/17",
+    "estado": true
+  },
+  {
+    "nom_ciclo": "2017-1",
+    "fecha_inicio":"01/03/17",
+    "fecha_fin":"05/03/17",
+    "estado":true
+  },
+  {
+    "nom_ciclo": "2017-2",
+    "fecha_inicio":"01/03/17",
+    "fecha_fin":"05/03/17",
+    "estado":true
+  },
+  {
+    "nom_ciclo": "2018-0",
+    "fecha_inicio":"01/03/17",
+    "fecha_fin":"05/03/17",
+    "estado":true
+  }
+]
+}

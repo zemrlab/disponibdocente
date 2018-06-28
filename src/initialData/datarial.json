@@ -1,0 +1,52 @@
+[{
+  "nombres": "Sharlene",
+  "apellidos": "Battle",
+  "dni": "fc2db6e3-b62a-448d-a9ee-0df709f49777",
+  "phone": "+51 (967) 534-2434",
+  "disponibilidad": [
+        {
+          "id": "5b1857be365207b4dffb40d0",
+          "nombre": "viernes",
+          "hinicio": 12,
+          "hfin": 22
+        },
+        {
+          "id": "5b1857beaf03f745cf3b7eb7",
+          "nombre": "sabado",
+          "hinicio": 17,
+          "hfin": 21
+        },
+        {
+          "id": "5b1857be09e222aa844b949b",
+          "nombre": "viernes",
+          "hinicio": 14,
+          "hfin": 11
+        }
+      ]
+},{
+  "nombres": "Steve",
+  "apellidos": "Battle",
+  "dni": "fc2db6e3-b62a-448d-a9ee-0df709f49777",
+  "phone": "+51 (967) 534-2434",
+  "disponibilidad": [
+    {
+      "id": "5b1857be365207b4dffb40d0",
+      "nombre": "viernes",
+      "hinicio": 12,
+      "hfin": 22
+    },
+    {
+      "id": "5b1857beaf03f745cf3b7eb7",
+      "nombre": "sabado",
+      "hinicio": 17,
+      "hfin": 21
+    },
+    {
+      "id": "5b1857be09e222aa844b949b",
+      "nombre": "viernes",
+      "hinicio": 14,
+      "hfin": 11
+    }
+  ]
+}
+]

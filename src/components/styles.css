@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    font-size: 14px;
+
+  }
+  
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  p {
+    margin-top: 0px;
+  }
+  
+  .bodyClass {
+    background-color: #fff;
+    padding: 100px;
+  }
+  
+  .menuClass {
+    background-color: #999;
+    padding: 1px;
+  }
+
+  .infoClass{
+    margin-top: 17em;
+    margin-bottom: 40em;
+    background-color: #FFFFFF;
+  }

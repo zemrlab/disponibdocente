@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: bounceIn 6s;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+.App-title {
+  font: 150% fantasy;
+  animation: bounceIn 5s;
+  color: #EED241;
+}
+.App-sub-title {
+  font-size: 20px;
+  font-style: italic;
+  text-align: left;
+  color: #222;
+}
+.App-intro {
+  font-size: large;
+}
+.Seleccionar{
+  font-size: 15px;
+  color: #CD6155;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+div.box {
+  cursor: pointer;
+  height: 20px;
+  width: 80px;
+  margin: 1px;
+  float: left;
+  background-color: #BFBFBF;
+
+}
+
+div.selected{
+  background-color: #3B83BD;
+}
+
+div.disabled{
+  background-color: #5F5F5F;
+}

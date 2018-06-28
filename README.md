@@ -1,2 +1,3 @@
-# disponibdocente
-Front del modulo de disponibilidad de docente
+[Entrar al directorio]
+[npm install]
+[npm start]
