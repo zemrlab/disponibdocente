@@ -10,7 +10,8 @@ const InfAdicionalModel1 = ({profesor}) =>
             <ControlLabel>Nombre</ControlLabel>
             <FormControl className="color-fondo"
                          type="text"
-                         value="Nombre de Prueba"/>
+                         value="Nombre de Prueba"
+                         disabled="true"/>
         </FormGroup>
 
         <InfAdicionalModel2/>
@@ -18,7 +19,8 @@ const InfAdicionalModel1 = ({profesor}) =>
             <ControlLabel>Grado</ControlLabel>
             <FormControl className="color-fondo"
                          type="text"
-                         value="Grado de Prueba"/>
+                         value="Grado de Prueba"
+                         disabled="true"/>
         </FormGroup>
     </div>
 

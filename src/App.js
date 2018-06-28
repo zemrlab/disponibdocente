@@ -34,7 +34,9 @@ class App extends Component {
             ciclo_actual: 1,
             cicleros:[],
             ciclo:'',
-            ciclos: data2
+            ciclos: data2,
+            tipo: "docente",
+            id: 1
         }
 
         for (let i=0;i<this.state.rows.length*this.state.columns.length;i++)
@@ -50,10 +52,11 @@ class App extends Component {
         this.expandDong = this.expandDong.bind(this)
         this.sendMS = this.sendMS.bind(this)
         this.changeMSEditable = this.changeMSEditable.bind(this)
+
     }
 
     expandDong = (prevState,newData) => {
-        console.log(newData)
+        //console.log(newData)
         let coursesS = newData.map((n,i)=> {
             var newP =Object.assign({},n);
             newP.cursos=[]
@@ -63,18 +66,19 @@ class App extends Component {
     }
 
      async componentDidMount(){
-        await axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
+        await this.getParametros();
+        axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
             this.setState({cicleros:res_ciclo.data,ciclo:res_ciclo.data[0].id_ciclo})
-        }).then(
-            await axios.get('https://apidisponibilidad.herokuapp.com/docente/docente/1').then(res=>{
-                this.setState(prevState => ({profesor:res.data}))
+
+            axios.get(`https://apidisponibilidad.herokuapp.com/docente/docente/${this.state.id}`).then(res=>{
+                this.setState(({profesor:res.data}))
             }).then(
-                await axios.get('https://apidisponibilidad.herokuapp.com/curso/cursos').then(resi =>{
-                    console.log(this.state.ciclo)
-                    axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/1/${this.state.ciclo}`).then(res4 =>{
+                axios.get('https://apidisponibilidad.herokuapp.com/curso/cursos').then(resi =>{
+                    //console.log(this.state.ciclo)
+                    axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${res_ciclo.data[0].id_ciclo}`).then(res4 =>{
                         let selectedArray = res4.data.map(n=>n.id_curso)
                         this.setState(prevState => {
-                            console.log(prevState.coursesSelection)
+                            //console.log(prevState.coursesSelection)
                             return {values: resi.data,
                                 coursesSelection: this.expandDong(prevState,resi.data).map((n,pos)=>
                                     Object.assign(n,{cursos:resi.data[pos].cursos.filter(curso=>selectedArray.includes(curso.id_curso))})
@@ -82,33 +86,51 @@ class App extends Component {
                     })
                     //this.setState(prevState => ({values: resi.data, coursesSelection:this.expandDong(prevState,resi.data)}));
                 })).then(
-                    axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/1/${this.state.ciclo}`).then(res2 =>{
+                    axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${res_ciclo.data[0].id_ciclo}`).then(res2 =>{
                         this.setState(prevState => ({
                             selection: JSON.parse(res2.data)
                         }));
                     }).then(
-                        axios.get('https://apidisponibilidad.herokuapp.com/docente/docente/1').then(res3 =>{
+                        axios.get(`https://apidisponibilidad.herokuapp.com/docente/docente/${this.state.id}`).then(res3 =>{
                             this.setState(prevState => ({
                                 profesor: res3.data
                             }))})).then(
-                                axios.get('https://apidisponibilidad.herokuapp.com/docente/docente/1').then(resina =>{
+                                axios.get(`https://apidisponibilidad.herokuapp.com/docente/docente/${this.state.id}`).then(resina =>{
                                     this.setState(prevState => ({
                                        courseHistory:resina.data
                                     }))
                                     })
                     )
-            ));
+            )
+        });
+
+         //console.log(this.props);
+    }
+
+    getParametros = () => {
+        let url = new URL(window.location.href);
+        let id = url.searchParams.get("id");
+        let tipo = url.searchParams.get("tipo");
+        //let nombre = url.searchParams.get("nombre");
+        if(id!=null && tipo!=null)
+            this.setState({
+                tipo: tipo,
+                id : id
+            })
+        console.log(id);
+        console.log(tipo);
+        //console.log(nombre);
     }
 
     changeDHEditable = () => {
         if (this.state.dhenabled) {
-            axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/1/${this.state.ciclo}`).then(res =>{
+            axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${this.state.ciclo}`).then(res =>{
                 this.setState(prevState => ({
                     selection: JSON.parse(res.data),
                     dhenabled: !prevState.dhenabled
                 }));
             }).catch(rej => {
-                console.log('EL BACK NO ESTA ACTIVADO')
+                //console.log('EL BACK NO ESTA ACTIVADO')
                 this.setState(prevState => ({
                     dhenabled: !prevState.dhenabled
             })
@@ -122,10 +144,10 @@ class App extends Component {
 
     changeMSEditable = () => {
         if (this.state.msenabled) {
-            axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/1/${this.state.ciclo}`).then(res4 =>{
+            axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${this.state.ciclo}`).then(res4 =>{
                 let selectedArray = res4.data.map(n=>n.id_curso)
                 this.setState(prevState => {
-                    console.log(prevState.coursesSelection)
+                    //console.log(prevState.coursesSelection)
                     return {msenabled:!prevState.msenabled,
                         coursesSelection: this.expandDong(prevState,prevState.values).map((n,pos)=>
                             Object.assign(n,{cursos:this.state.values[pos].cursos.filter(curso=>selectedArray.includes(curso.id_curso))})
@@ -174,7 +196,7 @@ class App extends Component {
     }
 
     sendDisp = () => {
-        axios.post(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/1/${this.state.ciclo}`,{selection:this.state.selection}).then(res =>
+        axios.post(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${this.state.ciclo}`,{selection:this.state.selection}).then(res =>
             this.setState(prevState => ({
                 dhenabled: !prevState.dhenabled
             })
@@ -183,7 +205,7 @@ class App extends Component {
     }
 
     sendMS = () => {
-        axios.post(`https://apidisponibilidad.herokuapp.com/curso/docente/1/${this.state.ciclo}`,{coursesSelection:this.state.coursesSelection}).then(res =>
+        axios.post(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${this.state.ciclo}`,{coursesSelection:this.state.coursesSelection}).then(res =>
             this.setState(prevState => ({
                 msenabled: !prevState.msenabled
             })
@@ -192,7 +214,7 @@ class App extends Component {
     }
 
     getPDF = () => {
-        axios.get('https://apidisponibilidad.herokuapp.com/docente/pdf/1').then( response=>{
+        axios.get(`https://apidisponibilidad.herokuapp.com/docente/pdf/${this.state.id}`).then( response=>{
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -203,37 +225,37 @@ class App extends Component {
     }
 
     handleMS = (selectedOption,programa) =>{
-         console.log(selectedOption,programa)
+         //console.log(selectedOption,programa)
         let selectedArray = selectedOption.split(',').map(n=>parseInt(n,10));
         this.setState(prevState => ({
             coursesSelection: prevState.coursesSelection.map((n,pos)=>{
-                console.log(n.id_programa)
+                //console.log(n.id_programa)
                 return (n.id_programa!==programa) ? {...n} :
                     Object.assign(n,{cursos:prevState.values[pos].cursos.filter(curso=>selectedArray.includes(curso.id_curso))})}
             )}))
-        console.log(this.state.coursesSelection)
+        //console.log(this.state.coursesSelection)
     }
 
     guardarCiclo=(ciclo)=>{
-        //console.log(ciclo);
+        ////console.log(ciclo);
         axios.post('http://localhost:8000/curso/nuevociclo', ciclo)
             .then(res => {
-                console.log(res);
-                console.log(res.data);
+                //console.log(res);
+                //console.log(res.data);
             })
     }
 
     changeCiclos=(ciclo)=>{
         this.setState({ciclo:ciclo})
-        axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/1/${ciclo}`).then(res4 =>{
+        axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${ciclo}`).then(res4 =>{
             let selectedArray = res4.data.map(n=>n.id_curso)
             this.setState(prevState => {
-                console.log(prevState.coursesSelection)
+                //console.log(prevState.coursesSelection)
                 return {coursesSelection: this.expandDong(prevState,this.state.values).map((n,pos)=>
                         Object.assign(n,{cursos:this.state.values[pos].cursos.filter(curso=>selectedArray.includes(curso.id_curso))})
                     )}})
         })
-        axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/1/${ciclo}`).then(res2 =>{
+        axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${ciclo}`).then(res2 =>{
             this.setState(prevState => ({
                 selection: JSON.parse(res2.data)
             }));
@@ -245,81 +267,81 @@ class App extends Component {
         const { ciclos, rows,columns,selection,enabled,values,coursesSelection, profesor, dhenabled, msenabled, cicleros } = this.state;
         return (
             <div className="App">
-                <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-                    <Tab eventKey={1} title="Disponibilidad Docente">
-                    <header className="App-header">
-                    <h1 className="App-title"><img src={logo} className="App-logo" alt="logo" />
-                        <div>Disponibilidad del docente</div></h1>
-                </header>
-                <Grid>
-                    <Col md={9}>
-                        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-                            <Tab eventKey={1} title="Informacion Personal">
-                                <InformacionPersonal profesor={profesor}/>
-                            </Tab   >
-                            <Tab eventKey={2} title="Informacion Academica">
-                                <InformacionAcademica profesor={profesor}/>
-                            </Tab>
-                        </Tabs>
-                    </Col>
-                    <Col md={3}>
-                        <PhotoPanel/>
-                    </Col>
-                    <Col md={9}>
-                        <FormGroup controlId="formControlsSelect">
-                            <ControlLabel>Ciclos</ControlLabel>
-                            <FormControl componentClass="select" onChange={(e)=>this.changeCiclos(e.target.value)} value={this.state.value} placeholder="seleccionar ciclo">
-                                {(cicleros.length>0) ?
-                                    cicleros.map((n,i)=><option key={i} value={n.id_ciclo}>{n.nom_ciclo}</option>):
-                                    <option value="select">select</option>
-                                }
-                            </FormControl>
-                        </FormGroup>
-                        <DisponibilidadPanel rows={rows} columns={columns} selection={selection}
-                                             enabled={enabled} onSelect={select} saveChanges={sendDisp}
-                                             editable={dhenabled} changeEdit={changeDHEditable}/>
+                    {(this.state.tipo=="docente")?
+                        <div>
+                            <header className="App-header">
+                                <h1 className="App-title"><img src={logo} className="App-logo" alt="logo" />
+                                    <div>Disponibilidad del docente</div></h1>
+                            </header>
+                            <Grid>
+                                <Col md={9}>
+                                    <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+                                        <Tab eventKey={1} title="Informacion Personal">
+                                            <InformacionPersonal profesor={profesor}/>
+                                        </Tab   >
+                                        <Tab eventKey={2} title="Informacion Academica">
+                                            <InformacionAcademica profesor={profesor}/>
+                                        </Tab>
+                                    </Tabs>
+                                </Col>
+                                <Col md={3}>
+                                    <PhotoPanel/>
+                                </Col>
+                                <Col md={9}>
+                                    <FormGroup controlId="formControlsSelect">
+                                        <ControlLabel>Ciclos</ControlLabel>
+                                        <FormControl componentClass="select" onChange={(e)=>this.changeCiclos(e.target.value)} value={this.state.value} placeholder="seleccionar ciclo">
+                                            {(cicleros.length>0) ?
+                                                cicleros.map((n,i)=><option key={i} value={n.id_ciclo}>{n.nom_ciclo}</option>):
+                                                <option value="select">select</option>
+                                            }
+                                        </FormControl>
+                                    </FormGroup>
+                                    <DisponibilidadPanel rows={rows} columns={columns} selection={selection}
+                                                         enabled={enabled} onSelect={select} saveChanges={sendDisp}
+                                                         editable={dhenabled} changeEdit={changeDHEditable}/>
 
-                        <PreferencesPanel notSelectedArray={values} selectedArray={coursesSelection} msedit={msenabled}
-                                          changeSelection={handleMS} sendMS={sendMS} changeEdit={changeMSEditable} />
-                        <PDFPanel getPDF={getPDF} />
-                    </Col>
-                </Grid>
-                    </Tab>
-                    <Tab eventKey={2} title="Secretaria-Ciclos">
-                    {((ciclos.ciclos.length>0)?<div>
-                                <div className="App">
-                                <header className="App-header">
-                                    <h1 className="App-title">Módulo Secretaria</h1>
-                                </header>
+                                    <PreferencesPanel notSelectedArray={values} selectedArray={coursesSelection} msedit={msenabled}
+                                                      changeSelection={handleMS} sendMS={sendMS} changeEdit={changeMSEditable} />
+                                    <PDFPanel getPDF={getPDF} />
+                                </Col>
+                            </Grid>
+                        </div>:null}
+                    {(this.state.tipo=="secretaria")?
+                        <div>
+                            {((ciclos.ciclos.length>0)?
+                                <div>
+                                    <div className="App">
+                                    <header className="App-header">
+                                        <h1 className="App-title">Módulo Secretaria</h1>
+                                    </header>
 
-                                <Grid>
-                                    <Col md={12}>
-                                        <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
-                                            <Tab eventKey={1} title="Apertura de Ciclo">
-                                                <br/>
-                                                <br/>
-                                                <Row>
-                                                    <Col md={12}>
-                                                        <PanelAgregar guardarCiclo={this.guardarCiclo}/>
-                                                        <br/>
-                                                        <br/>
-                                                        <PanelHistorial ciclos={cicleros}/>
-                                                    </Col>
-                                                </Row>
-                                            </Tab>
-                                            <Tab eventKey={2} title="Módulo de Consultas">
-                                                <ModuloConsultas/>
-                                            </Tab>
+                                    <Grid>
+                                        <Col md={12}>
+                                            <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+                                                <Tab eventKey={1} title="Apertura de Ciclo">
+                                                    <br/>
+                                                    <br/>
+                                                    <Row>
+                                                        <Col md={12}>
+                                                            <PanelAgregar guardarCiclo={this.guardarCiclo}/>
+                                                            <br/>
+                                                            <br/>
+                                                            <PanelHistorial ciclos={cicleros}/>
+                                                        </Col>
+                                                    </Row>
+                                                </Tab>
+                                                <Tab eventKey={2} title="Módulo de Consultas">
+                                                    <ModuloConsultas/>
+                                                </Tab>
 
-                                        </Tabs>
-                                    </Col>
+                                            </Tabs>
+                                        </Col>
 
-                                </Grid>
-                            </div>
-                        </div>:<div>cargando</div>)}
-
-                    </Tab>
-                </Tabs>
+                                    </Grid>
+                                </div>
+                             </div>:<div>cargando</div>)}
+                        </div>:null}
                 
             </div>
 
@@ -328,3 +350,9 @@ class App extends Component {
 }
 
 export default App;
+
+
+/* baneado
+<div eventKey={1} title="Disponibilidad Docente">
+
+*/

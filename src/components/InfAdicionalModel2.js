@@ -10,19 +10,22 @@ const InfAdicionalModel2 = ({profesor}) =>
             <ControlLabel>Correo</ControlLabel>
             <FormControl className="color-fondo"
                          type="text"
-                         value="Correo de Prueba"/>
+                         value="Correo de Prueba"
+                         disabled="true"/>
         </FormGroup>
         <FormGroup>
             <ControlLabel>Direccion</ControlLabel>
             <FormControl className="color-fondo"
                          type="text"
-                         value="Direccion de Prueba"/>
+                         value="Direccion de Prueba"
+                         disabled="true"/>
         </FormGroup>
         <FormGroup>
             <ControlLabel>Celular</ControlLabel>
             <FormControl className="color-fondo"
                          type="text"
-                         value="Celular de Prueba"/>
+                         value="Celular de Prueba"
+                         disabled="true"/>
         </FormGroup>
     </div>
 

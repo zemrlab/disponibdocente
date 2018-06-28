@@ -10,7 +10,7 @@ const ResultRow = ({resultado,onClick,...props}) =>
     <tr>
         {
             Object.keys(resultado).map(key=>
-                (key!="disponibilidad")?<td>{resultado[key]}</td>:<td>{getDisponibilidad(resultado[key])}</td>
+                (key!="disponibilidad")?<td key={key}>{resultado[key]}</td>:<td  key={key}>{getDisponibilidad(resultado[key])}</td>
             )
         }
     </tr>
