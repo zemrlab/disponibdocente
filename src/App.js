@@ -4,6 +4,7 @@ import logo from './teacher.svg';
 import './App.css';
 import data from "./data.json";
 import {ControlLabel,FormControl,FormGroup, Grid, Col, Row } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import InformacionAcademica from './InformationAcademic';
 import InformacionPersonal from './InformationPersonal';
 import PhotoPanel from './components/PhotoPanel';
@@ -267,6 +268,11 @@ class App extends Component {
         const { ciclos, rows,columns,selection,enabled,values,coursesSelection, profesor, dhenabled, msenabled, cicleros } = this.state;
         return (
             <div className="App">
+                    <Row>
+                        <Col mdOffset={10} md={2}>
+                            <Button href="http://siga-fisi.herokuapp.com/dashboard">VOLVER A MENU</Button>
+                        </Col>
+                    </Row>
                     {(this.state.tipo=="docente")?
                         <div>
                             <header className="App-header">
