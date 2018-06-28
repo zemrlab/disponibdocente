@@ -1,0 +1,23 @@
+div.box {
+    cursor: pointer;
+    height: 20px;
+    width: 80px;
+    margin: 1px;
+    float: left;
+    background-color: #BFBFBF;
+
+}
+
+div.selected{
+    background-color: #3B83BD;
+}
+
+div.disabled{
+    background-color: #5F5F5F;
+}
+
+
+.Seleccionar{
+    font-size: 15px;
+    color: #CD6155;
+}

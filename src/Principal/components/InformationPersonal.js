@@ -20,7 +20,7 @@ const InformacionPersonal = ({profesor})=>
                                 valorCampo={profesor.apell_pat + " " + profesor.apell_mat}/>
                             <TextandInput
                                 nombreCampo="Genero"
-                                valorCampo={(profesor.genero==='M')?'Masculino':'Femenino'}/>
+                                valorCampo={(profesor.genero!=='')?((profesor.genero==='M')?'Masculino':'Femenino'):""}/>
 
                             <TextandInput
                                 nombreCampo="Correo"

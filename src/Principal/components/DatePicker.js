@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import './DatePicker.css';
+import './cssComponents/DatePicker.css';
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+// CSS Modules, react-datepicker-cssmodules.cssComponents
+// import 'react-datepicker/dist/react-datepicker-cssmodules.cssComponents';
 
 class DatePickerCustom extends Component {
     constructor (props) {

@@ -11,13 +11,13 @@ const TableResultado = ({resultados,filterHandler=f=>f,getDocenteData=f=>f,...pr
                     {
                         (resultados.length>0)?Object.keys(resultados[0] ).map((key)=>
                             <th key={key} className="text-center">{key}</th>
-                        ): <div></div>
+                        ):  null
                     }
                 </tr>
             </thead>
             <tbody>
                     {(resultados.length>0)?resultados.map((n,i)=>
-                        <ResultRow key={i} resultado={n}/>) : <div></div>
+                        <ResultRow key={i} resultado={n}/>) : null
                     }
             </tbody>
         </Table>

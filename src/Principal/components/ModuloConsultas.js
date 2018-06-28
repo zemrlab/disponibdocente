@@ -19,7 +19,7 @@ class ModuloConsultas extends Component {
         super(...props)
         this.state = {
             isMenuOpened: false,
-            cData:dataRial,
+            cData:[],
             resultados: [],
            // filteredList:[],
             filterBuscar:{

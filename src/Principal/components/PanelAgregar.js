@@ -12,12 +12,12 @@ class PanelAgregar extends Component{
         this.state = {
             newCiclo: {
                 nombre: '',
-                fecha_inicio: '',
-                fecha_fin: ''
+                fecha_inicio: moment(),
+                fecha_fin: moment()
             },
             nombre: '',
             fecha_inicio:moment(),
-            fecha_fin:moment()
+            fecha_fin:moment(),
         };
         this.handleChangeFechaInicio = this.handleChangeFechaInicio.bind(this),
             this.handleChangeFechaFin = this.handleChangeFechaFin.bind(this),
@@ -34,6 +34,7 @@ class PanelAgregar extends Component{
     addNewCiclo(e){
         e.preventDefault();
         /*console.log(this.state.newCiclo);*/
+        console.log(this.state.newCiclo.fecha_inicio);
         var ciclo={
             nom_ciclo :this.state.nombre,
             //fecha_inicio:this.state.newCiclo.fecha_inicio,
@@ -42,6 +43,7 @@ class PanelAgregar extends Component{
             fecha_fin:this.functionFechaFix(this.state.newCiclo.fecha_fin),
             estado:true
         }
+
         console.log(ciclo);
         this.props.guardarCiclo(ciclo)
 

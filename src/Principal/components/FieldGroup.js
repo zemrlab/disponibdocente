@@ -1,7 +1,7 @@
 import React from 'react'
 import {form, FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
 import {Grid, Col, Row} from 'react-bootstrap'
-import './Group.css';
+import './cssComponents/Group.css';
 
 const TextandInput = ({nombreCampo, valorCampo}) =>
     <div className="separated">
