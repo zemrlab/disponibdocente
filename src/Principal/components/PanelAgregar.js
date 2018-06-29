@@ -6,18 +6,30 @@ import {Grid, Col, Row} from 'react-bootstrap';
 import DatePickerCustom from './DatePicker';
 import moment from 'moment';
 
+Date.prototype.yyyymmdd = function() {
+    var mm = this.getMonth() + 1; // getMonth() is zero-based
+    var dd = this.getDate();
+
+    return [
+        (dd>9 ? '' : '0') + dd,
+        (mm>9 ? '' : '0') + mm,
+        this.getFullYear()
+    ].join('-');
+}
+
 class PanelAgregar extends Component{
     constructor(props){
+        let date=new Date();
         super(props);
         this.state = {
             newCiclo: {
                 nombre: '',
-                fecha_inicio: moment(),
-                fecha_fin: moment()
+                fecha_inicio:date.yyyymmdd(),
+                fecha_fin: date.yyyymmdd()
             },
             nombre: '',
-            fecha_inicio:moment(),
-            fecha_fin:moment(),
+            fecha_inicio: date.yyyymmdd(),
+            fecha_fin:date.yyyymmdd(),
         };
         this.handleChangeFechaInicio = this.handleChangeFechaInicio.bind(this),
             this.handleChangeFechaFin = this.handleChangeFechaFin.bind(this),
@@ -26,16 +38,15 @@ class PanelAgregar extends Component{
 
     functionFechaFix(fecha){
         let fechanew="";
-        console.log(fecha);
         fechanew = fecha.split("-");
         fecha = fechanew[2] + "-" + fechanew[1] + "-" + fechanew[0];
         return fecha
     }
 
+
+
     addNewCiclo(e){
         e.preventDefault();
-        /*console.log(this.state.newCiclo);*/
-        console.log(this.state.newCiclo.fecha_inicio);
         var ciclo={
             nom_ciclo :this.state.nombre,
             //fecha_inicio:this.state.newCiclo.fecha_inicio,
@@ -45,7 +56,7 @@ class PanelAgregar extends Component{
             estado:true
         }
 
-        console.log(ciclo);
+        //console.log(ciclo);
         this.props.guardarCiclo(ciclo)
 
     }
