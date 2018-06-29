@@ -32,7 +32,8 @@ class App extends Component {
     render() {
         switch (this.state.tipo){
             case "docente": return <VistaDocente id={this.state.id}/>
-            case "secretaria": return <VistaSecretaria id={this.state.id}/>
+            case "administrativo": return <VistaSecretaria id={this.state.id}/>
+            default : return <div></div>
         }
     }
 }

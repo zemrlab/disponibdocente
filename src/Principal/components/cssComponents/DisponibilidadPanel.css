@@ -1,0 +1,28 @@
+.Llibre{
+    background-color: #3B83BD;
+    height: 20px;
+    width: 30px;
+    float:start;
+}
+
+.Locupado{
+    background-color: #BFBFBF;
+    height: 20px;
+    width: 30px;
+    float: start;
+}
+
+.Ldesahibilitado{
+    background-color: #5F5F5F;
+    height: 20px;
+    width: 30px;
+    float: start;
+}
+
+.labelleyenda{
+    padding-right: 0;
+}
+
+.leyenda{
+    margin-top: 100%;
+}

@@ -260,7 +260,7 @@ class VistaDocente extends Component {
                             </Tabs>
                         </Col>
                         <Col md={3}>
-                            <PhotoPanel/>
+                            <PhotoPanel profesor={this.state.profesor} />
                         </Col>
                         <Col md={9}>
                             <FormGroup controlId="formControlsSelect">
