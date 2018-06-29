@@ -30,6 +30,8 @@ class ModuloConsultas extends Component {
                 horaInicio: "",
                 horaFin: ""
             },
+            ciclos:[],
+            dias:[],
 
             /*
             disponibilidadFilter:'',
@@ -41,10 +43,10 @@ class ModuloConsultas extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.filterByCourse = this.filterByCourse.bind(this);
-        this.filterByName = this.filterByName.bind(this);
+        //this.filterByCourse = this.filterByCourse.bind(this);
+        //this.filterByName = this.filterByName.bind(this);
         //this.filterList = this.filterList.bind(this);
-        this.filterByDisp = this.filterByDisp.bind(this);
+        //this.filterByDisp = this.filterByDisp.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.showInfoDocente = this.showInfoDocente.bind(this);
         
@@ -89,25 +91,46 @@ class ModuloConsultas extends Component {
 
     buscarClick = ()=>{
         console.log(this.state.filterBuscar)
+        console.log(this.props.cicleros)
         axios.post('https://apidisponibilidad.herokuapp.com/secretaria/buscar',this.state.filterBuscar).then(res =>
             this.setState({resultados:res.data})
         )
     }
-
-    componentWillMount(){
-        this.setState({resultados:this.state.cData})
+    componentDidMount(){
+        axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
+            let ciclos=res_ciclo.data.slice();
+            ciclos.push({
+                    id_ciclo:'',
+                    nom_ciclo:"Ninguno",
+                }
+            )
+            this.setState({ciclos: ciclos})
+        })
+        axios.get('https://apidisponibilidad.herokuapp.com/disponibilidad/dias').then(res_dias=>{
+            let dias=res_dias.data.slice();
+            dias.push({
+                    id_dia:'',
+                    nom_dia:"Ninguno",
+                }
+            )
+            this.setState({dias: dias})
+        })
     }
+   /* componentWillMount(){
+        this.setState({resultados:this.state.cData})
+    }*/
 
     render() {
-        const {resultados} = this.state;
-        const {handleChange} = this;
+        const {resultados,ciclos,dias,filterBuscar} = this.state;
         return (
 
             <OffCanvas width={300} transitionDuration={300} isMenuOpened={this.state.isMenuOpened} position={"right"}>
                 <OffCanvasBody className={styles.bodyClass} style={{fontSize: '30px'}}>
                     <h2>Modulo Consultas</h2>
                     <Button onClick={this.handleClick}>Panel Izquierdo</Button>
-                    <SemesterSearchForm handleChange={this.handleChange} onClickForm={this.buscarClick}/>
+                    <SemesterSearchForm handleChange={this.handleChange} onClickForm={this.buscarClick}
+                                        ciclos={ciclos} ciclo={filterBuscar.semestreFilter}
+                                        dias={dias} dia={filterBuscar.diaFilter}/>
                     <PanelResultado showDocenteInfo={this.showInfoDocente} handleChanges={f=>f} resultados={resultados} />
                 </OffCanvasBody>
                 <OffCanvasMenu className={styles.menuClass}>

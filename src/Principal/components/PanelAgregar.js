@@ -26,6 +26,7 @@ class PanelAgregar extends Component{
 
     functionFechaFix(fecha){
         let fechanew="";
+        console.log(fecha);
         fechanew = fecha.split("-");
         fecha = fechanew[2] + "-" + fechanew[1] + "-" + fechanew[0];
         return fecha

@@ -4,7 +4,7 @@ import {Panel,Col,Label,Row} from 'react-bootstrap'
 import DisponibilidadHoraria from './DisponibilidadHoraria'
 import "./cssComponents/DisponibilidadPanel.css"
 
-const DisponibilidadPanel = ({rows=[],columns=[],selection=[],enabled=[],onSelect= f=>f,editable=false,changeEdit=f=>f,...props}) =>
+const DisponibilidadPanel = ({rows=[],columns=[],selection=[],enabled=[],onSelect= f=>f,editable=false,estadoEditar=true,changeEdit=f=>f,...props}) =>
     <Panel bsStyle="primary">
         <Panel.Heading>
             <Panel.Title componentClass="h3">Disponibilidad Horaria</Panel.Title>
@@ -12,7 +12,7 @@ const DisponibilidadPanel = ({rows=[],columns=[],selection=[],enabled=[],onSelec
         <Panel.Body>
                 <Col md={10}>
                         <DisponibilidadHoraria rows={rows} columns={columns} selection={selection} enabled={enabled}
-                                       onSelect={onSelect} editable={editable} changeEdit={changeEdit} {...props}/>
+                                       onSelect={onSelect} editable={editable} estadoEditar={estadoEditar} changeEdit={changeEdit} {...props}/>
                 </Col>
                 <Col md={2} >
                     <Row className="leyenda">
@@ -33,7 +33,7 @@ const DisponibilidadPanel = ({rows=[],columns=[],selection=[],enabled=[],onSelec
                     </Row>
                     <Row>
                         <Col md={8} className="labelleyenda">
-                            <p >DesHabilitado</p>
+                            <p >Deshabilitado</p>
                         </Col>
                         <Col md={2} className="labelleyenda">
                             <div className="Ldesahibilitado" />

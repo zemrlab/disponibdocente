@@ -47,7 +47,7 @@ class VistaSecretaria extends Component {
 
                     <Grid>
                         <Col md={12}>
-                            <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+                            <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
                                 <Tab eventKey={1} title="Apertura de Ciclo">
                                     <br/>
                                     <br/>
@@ -61,7 +61,7 @@ class VistaSecretaria extends Component {
                                     </Row>
                                 </Tab>
                                 <Tab eventKey={2} title="Módulo de Consultas">
-                                    <ModuloConsultas/>
+                                    <ModuloConsultas />
                                 </Tab>
 
                             </Tabs>

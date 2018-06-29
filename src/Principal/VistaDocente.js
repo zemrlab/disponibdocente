@@ -11,9 +11,18 @@ import PhotoPanel from './components/PhotoPanel';
 import PreferencesPanel from "./components/PreferencesPanel";
 import DisponibilidadPanel from './components/DisponibilidadPanel';
 import PDFPanel from './components/PDFPanel';
+import fotoHombre from './media/imageHombre.png';
+import fotoMujer from './media/ImagenMujer.jpg';
+import swal from "sweetalert2"
 
 import {Tabs, Tab} from "react-bootstrap";
 
+const toastEvento=swal.mixin({
+    toast: true,
+    position: 'top-start',
+    showConfirmButton: false,
+    timer: 1500,
+});
 
 class VistaDocente extends Component {
     constructor(...props){
@@ -32,7 +41,9 @@ class VistaDocente extends Component {
             //ciclo_actual: 1,
             cicleros:[],
             ciclo: '',
-            id: this.props.id
+            estadoCiclo: true,
+            id: this.props.id,
+            foto: '',
         }
 
         for (let i=0;i<this.state.rows.length*this.state.columns.length;i++)
@@ -63,9 +74,10 @@ class VistaDocente extends Component {
 
     async componentDidMount(){
         axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
-            this.setState({cicleros:res_ciclo.data,ciclo:res_ciclo.data[0].id_ciclo})
-
+            this.setState({cicleros:res_ciclo.data,ciclo:res_ciclo.data[0].id_ciclo,estadoCiclo:!res_ciclo.data[0].estado})
+            console.log(res_ciclo)
             axios.get(`https://apidisponibilidad.herokuapp.com/docente/docente/${this.state.id}`).then(res=>{
+                this.buscarImagen(res.data);
                 this.setState(({profesor:res.data}))
             }).then(
                 axios.get('https://apidisponibilidad.herokuapp.com/curso/cursos').then(resi =>{
@@ -101,6 +113,14 @@ class VistaDocente extends Component {
 
         //console.log(this.props);
     }
+    buscarImagen= (profesor) =>{
+        switch (profesor.genero){
+            case "M":  this.state.foto=fotoHombre; break;
+            case "F": this.state.foto=fotoMujer; break;
+            default: this.state.foto="";
+        }
+    }
+
     changeDHEditable = () => {
         if (this.state.dhenabled) {
             axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${this.state.ciclo}`).then(res =>{
@@ -176,29 +196,36 @@ class VistaDocente extends Component {
     }
 
     sendDisp = () => {
-        axios.post(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${this.state.ciclo}`,{selection:this.state.selection}).then(res =>
+        axios.post(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${this.state.ciclo}`,{selection:this.state.selection}).then(res =>{
             this.setState(prevState => ({
-                    dhenabled: !prevState.dhenabled
-                })
-            ))
+                dhenabled: !prevState.dhenabled
+            }));
+            toastEvento({type:"success",title:"GUARDADO CON EXITO"})
+        }).catch(res=>
+            toastEvento({type:"error",title:"ERROR!! NO SE GUARDO CON EXITO"})
+        )
 
     }
 
     sendMS = () => {
-        axios.post(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${this.state.ciclo}`,{coursesSelection:this.state.coursesSelection}).then(res =>
+        axios.post(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${this.state.ciclo}`,{coursesSelection:this.state.coursesSelection}).then(res =>{
             this.setState(prevState => ({
                     msenabled: !prevState.msenabled
                 })
-            ))
+            );
+            toastEvento({type:"success",title:"GUARDADO CON EXITO"})
+        }).catch(res=>
+            toastEvento({type:"error",title:"ERROR!! NO SE GUARDO CON EXITO"})
+        )
 
     }
 
     getPDF = () => {
-        axios.get(`https://apidisponibilidad.herokuapp.com/docente/pdf/${this.state.id}`).then( response=>{
+        axios.get(`https://apidisponibilidad.herokuapp.com/docente/pdf/${this.state.id}/${this.state.ciclo}`).then( response=>{
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `${this.state.profesor.apell_pat}.pdf`);
+            link.setAttribute('download', `${this.state.profesor.apell_pat}_${((this.state.cicleros.find(c=>c.idciclo=this.state.ciclo)).nom_ciclo).trim()}.pdf`);
             document.body.appendChild(link);
             link.click();
         })
@@ -217,8 +244,11 @@ class VistaDocente extends Component {
     }
 
     changeCiclos=(ciclo)=>{
-        this.setState({ciclo:ciclo})
-        axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${ciclo}`).then(res4 =>{
+        let idciclo=ciclo;
+        let cicl = this.state.cicleros.find(c=>c.id_ciclo==ciclo)
+        console.log(cicl)
+        this.setState({ciclo:idciclo,estadoCiclo:!cicl.estado,dhenabled:false});
+        axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${idciclo}`).then(res4 =>{
             let selectedArray = res4.data.map(n=>n.id_curso)
             this.setState(prevState => {
                 //console.log(prevState.coursesSelection)
@@ -226,7 +256,7 @@ class VistaDocente extends Component {
                         Object.assign(n,{cursos:this.state.values[pos].cursos.filter(curso=>selectedArray.includes(curso.id_curso))})
                     )}})
         })
-        axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${ciclo}`).then(res2 =>{
+        axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${idciclo}`).then(res2 =>{
             this.setState(({
                 selection: JSON.parse(res2.data)
             }));
@@ -235,7 +265,7 @@ class VistaDocente extends Component {
 
     render() {
         const { select, handleMS, getPDF,sendDisp,changeDHEditable,changeMSEditable,sendMS } = this;
-        const {rows,columns,selection,enabled,values,coursesSelection, profesor, dhenabled, msenabled, cicleros } = this.state;
+        const {foto,rows,columns,selection,enabled,values,coursesSelection, profesor, dhenabled, msenabled, cicleros ,estadoCiclo} = this.state;
         return (
             <div className="App">
                 <Row>
@@ -260,7 +290,7 @@ class VistaDocente extends Component {
                             </Tabs>
                         </Col>
                         <Col md={3}>
-                            <PhotoPanel profesor={this.state.profesor} />
+                            <PhotoPanel photo={foto} />
                         </Col>
                         <Col md={9}>
                             <FormGroup controlId="formControlsSelect">
@@ -274,7 +304,7 @@ class VistaDocente extends Component {
                             </FormGroup>
                             <DisponibilidadPanel rows={rows} columns={columns} selection={selection}
                                                  enabled={enabled} onSelect={select} saveChanges={sendDisp}
-                                                 editable={dhenabled} changeEdit={changeDHEditable}/>
+                                                 editable={dhenabled} changeEdit={changeDHEditable} estadoEditar={estadoCiclo}/>
 
                             <PreferencesPanel notSelectedArray={values} selectedArray={coursesSelection} msedit={msenabled}
                                               changeSelection={handleMS} sendMS={sendMS} changeEdit={changeMSEditable} />
