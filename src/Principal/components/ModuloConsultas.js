@@ -12,7 +12,14 @@ import { OffCanvas, OffCanvasMenu, OffCanvasBody } from 'react-offcanvas';
 import styles from './styles.css'
 import InfAdicionalModel1 from "./InfAdicionalModel1";
 import InfAdicionalModel2 from "./InfAdicionalModel2";
+import swal from "sweetalert2";
 
+const toastEvento=swal.mixin({
+    toast: true,
+    position: 'top-start',
+    showConfirmButton: false,
+    timer: 1500,
+});
 
 class ModuloConsultas extends Component {
     constructor(...props){
@@ -90,11 +97,11 @@ class ModuloConsultas extends Component {
     }
 
     buscarClick = ()=>{
-        console.log(this.state.filterBuscar)
-        console.log(this.props.cicleros)
-        axios.post('https://apidisponibilidad.herokuapp.com/secretaria/buscar',this.state.filterBuscar).then(res =>
+        axios.post('https://apidisponibilidad.herokuapp.com/secretaria/buscar',this.state.filterBuscar).then(res =>{
             this.setState({resultados:res.data})
-        )
+            if(res.data==[])
+                toastEvento({type:"error",title:"NO SE ENCONTRE DATOS"})
+        })
     }
     componentDidMount(){
         axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
