@@ -127,7 +127,7 @@ class ModuloConsultas extends Component {
             <OffCanvas width={300} transitionDuration={300} isMenuOpened={this.state.isMenuOpened} position={"right"}>
                 <OffCanvasBody className={styles.bodyClass} style={{fontSize: '30px'}}>
                     <h2>Modulo Consultas</h2>
-                    <Button onClick={this.handleClick}>Panel Izquierdo</Button>
+                    {/*<Button onClick={this.handleClick}>Panel Izquierdo</Button>*/}
                     <SemesterSearchForm handleChange={this.handleChange} onClickForm={this.buscarClick}
                                         ciclos={ciclos} ciclo={filterBuscar.semestreFilter}
                                         dias={dias} dia={filterBuscar.diaFilter}/>
