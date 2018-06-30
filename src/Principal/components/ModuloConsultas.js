@@ -89,7 +89,7 @@ class ModuloConsultas extends Component {
     handleChange = (e) => {
         e.preventDefault()
         let property = e.target.id;
-        console.log(property)
+        //console.log(property)
         let copyState=this.state.filterBuscar
         copyState[property]=e.target.value
         this.setState({ filterBuscar: copyState} )
@@ -99,8 +99,11 @@ class ModuloConsultas extends Component {
     buscarClick = ()=>{
         axios.post('https://apidisponibilidad.herokuapp.com/secretaria/buscar',this.state.filterBuscar).then(res =>{
             this.setState({resultados:res.data})
-            if(res.data==[])
-                toastEvento({type:"error",title:"NO SE ENCONTRE DATOS"})
+            console.log(res.data)
+            if(res.data.length===0)
+                toastEvento({type: "error", title: "NO SE ENCONTRE DATOS"})
+            else
+                toastEvento({type: "success", title: "BUSQUEDA EXITOSA"})
         })
     }
     componentDidMount(){
