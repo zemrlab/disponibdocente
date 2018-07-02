@@ -86,7 +86,7 @@ class VistaSecretaria extends Component {
             cancelButtonText:'No',
         }).then((result)=>{
             if(result.value){
-                axios.post('http://localhost:8000/curso/ciclos-update-destroy',this.state.cicleros).then(res=>{
+                axios.post('https://apidisponibilidad.herokuapp.com/curso/ciclos-update-destroy',this.state.cicleros).then(res=>{
                     toastEvento({type:'success', title:'Actualizado con exito'})
                     this.setState({estadoCiclos:false})
                 }).catch( srror=> {
