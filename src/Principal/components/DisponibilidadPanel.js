@@ -17,7 +17,7 @@ const DisponibilidadPanel = ({rows=[],columns=[],selection=[],enabled=[],onSelec
                 <Col md={2} >
                     <Row className="leyenda">
                         <Col md={8} className="labelleyenda">
-                            <p >Libre</p>
+                            <p >Ocupado</p>
                         </Col>
                         <Col md={2} className="labelleyenda">
                             <div className="Llibre" />
@@ -25,7 +25,7 @@ const DisponibilidadPanel = ({rows=[],columns=[],selection=[],enabled=[],onSelec
                     </Row>
                     <Row>
                         <Col md={8} className="labelleyenda">
-                            <p >Ocupado</p>
+                            <p >Libre</p>
                         </Col>
                         <Col md={2} className="labelleyenda">
                             <div className="Locupado" />

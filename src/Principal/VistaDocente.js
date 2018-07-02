@@ -225,7 +225,7 @@ class VistaDocente extends Component {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `${this.state.profesor.apell_pat}_${((this.state.cicleros.find(c=>c.idciclo=this.state.ciclo)).nom_ciclo).trim()}.pdf`);
+            link.setAttribute('download', `${this.state.profesor.apell_pat}_${((this.state.cicleros.find(c=>c.idciclo==this.state.ciclo)).nom_ciclo).trim()}.pdf`);
             document.body.appendChild(link);
             link.click();
         })
