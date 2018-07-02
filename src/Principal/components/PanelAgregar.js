@@ -38,17 +38,24 @@ class PanelAgregar extends Component{
     }
 
     functionFechaFix(fecha){
-        let fechanew="";
-        fechanew = fecha.split("-");
+        let fechanew = fecha.split("-");
         fecha = fechanew[2] + "-" + fechanew[1] + "-" + fechanew[0];
         return fecha
     }
 
-
+    functionFechaDate(fecha){
+        let fechanew = fecha.split("-");
+        fecha = fechanew[1] + "-" + fechanew[0] + "-" + fechanew[2];
+        return fecha
+    }
 
     addNewCiclo(e){
         e.preventDefault();
-        if(this.state.newCiclo.fecha_inicio<this.state.newCiclo.fecha_fin) {
+        let fecha_inicio =new Date(
+            this.functionFechaDate(this.state.newCiclo.fecha_inicio) );
+        let fecha_fin = new Date(
+            this.functionFechaDate(this.state.newCiclo.fecha_fin));
+        if(fecha_inicio.getTime()<fecha_fin.getTime()) {
             var ciclo = {
                 nom_ciclo: this.state.nombre,
                 //fecha_inicio:this.state.newCiclo.fecha_inicio,
