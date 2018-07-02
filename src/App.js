@@ -8,7 +8,7 @@ class App extends Component {
     constructor(...props){
         super(...props)
         this.state = {
-            tipo: "administrativo",
+            tipo: "docente",
             id: 1
         }
     }

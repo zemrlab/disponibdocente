@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Panel, Button} from 'react-bootstrap';
-import styles from './styles.css'
+import styles from '../styles.css'
 import {FormGroup, ControlLabel, FormControl, FieldGroup} from 'react-bootstrap';
 import InfAdicionalModel2 from "./InfAdicionalModel2";
 

@@ -247,7 +247,7 @@ class VistaDocente extends Component {
         let idciclo=ciclo;
         let cicl = this.state.cicleros.find(c=>c.id_ciclo==ciclo)
         console.log(cicl)
-        this.setState({ciclo:idciclo,estadoCiclo:!cicl.estado,dhenabled:false});
+        this.setState({ciclo:idciclo,estadoCiclo:!cicl.estado,dhenabled:false,msenabled:false});
         axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${idciclo}`).then(res4 =>{
             let selectedArray = res4.data.map(n=>n.id_curso)
             this.setState(prevState => {
@@ -307,7 +307,7 @@ class VistaDocente extends Component {
                                                  editable={dhenabled} changeEdit={changeDHEditable} estadoEditar={estadoCiclo}/>
 
                             <PreferencesPanel notSelectedArray={values} selectedArray={coursesSelection} msedit={msenabled}
-                                              changeSelection={handleMS} sendMS={sendMS} changeEdit={changeMSEditable} />
+                                              changeSelection={handleMS} sendMS={sendMS} changeEdit={changeMSEditable} estadoEditar={estadoCiclo}/>
                             <PDFPanel getPDF={getPDF} />
                         </Col>
                     </Grid>

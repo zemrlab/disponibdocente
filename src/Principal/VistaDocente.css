@@ -1,4 +1,4 @@
-div.box {
+.box {
     cursor: pointer;
     height: 20px;
     width: 80px;
@@ -8,11 +8,11 @@ div.box {
 
 }
 
-div.selected{
+.selected{
     background-color: #3B83BD;
 }
 
-div.disabled{
+.desahabilitado{
     background-color: #5F5F5F;
 }
 

@@ -1,26 +1,32 @@
 import React from 'react';
 import {Table, FieldGroup} from 'react-bootstrap';
 import ResultRow from './ResultRow';
-import { FormControl } from 'react-bootstrap';
+import ButtonPdf from './componentesDesuso/ButtonPdf';
+import { FormControl,Row } from 'react-bootstrap';
 
 const TableResultado = ({resultados,filterHandler=f=>f,getDocenteData=f=>f,...props}) =>
     <div>
-        <Table striped bordered condensed hover responsive>
-            <thead>
-                <tr>
-                    {
-                        (resultados.length>0)?Object.keys(resultados[0] ).map((key)=>
-                            <th key={key} className="text-center">{key}</th>
-                        ):  null
-                    }
-                </tr>
-            </thead>
-            <tbody>
-                    {(resultados.length>0)?resultados.map((n,i)=>
-                        <ResultRow key={i} resultado={n}/>) : null
-                    }
-            </tbody>
-        </Table>
+        <div  id="resultados_buscar" >
+            <Table striped bordered condensed hover responsive>
+                <thead>
+                    <tr>
+                        {
+                            (resultados.length>0)?Object.keys(resultados[0] ).map((key)=>
+                                <th key={key} className="text-center">{key}</th>
+                            ):  null
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                        {(resultados.length>0)?resultados.map((n,i)=>
+                            <ResultRow key={i} resultado={n}/>) : null
+                        }
+                </tbody>
+            </Table>
+        </div>
+        {/*<Row>
+            <ButtonPdf />
+        </Row>*/}
     </div>
 export default TableResultado
 

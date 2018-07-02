@@ -5,6 +5,7 @@ import {Button} from 'react-bootstrap';
 import {Grid, Col, Row} from 'react-bootstrap';
 import DatePickerCustom from './DatePicker';
 import moment from 'moment';
+import swal from "sweetalert2";
 
 Date.prototype.yyyymmdd = function() {
     var mm = this.getMonth() + 1; // getMonth() is zero-based
@@ -47,18 +48,25 @@ class PanelAgregar extends Component{
 
     addNewCiclo(e){
         e.preventDefault();
-        var ciclo={
-            nom_ciclo :this.state.nombre,
-            //fecha_inicio:this.state.newCiclo.fecha_inicio,
-            //fecha_fin:this.state.newCiclo.fecha_fin,
-            fecha_inicio : this.functionFechaFix(this.state.newCiclo.fecha_inicio),
-            fecha_fin:this.functionFechaFix(this.state.newCiclo.fecha_fin),
-            estado:true
-        }
+        if(this.state.newCiclo.fecha_inicio<this.state.newCiclo.fecha_fin) {
+            var ciclo = {
+                nom_ciclo: this.state.nombre,
+                //fecha_inicio:this.state.newCiclo.fecha_inicio,
+                //fecha_fin:this.state.newCiclo.fecha_fin,
+                fecha_inicio: this.functionFechaFix(this.state.newCiclo.fecha_inicio),
+                fecha_fin: this.functionFechaFix(this.state.newCiclo.fecha_fin),
+                estado: true
+            }
 
-        //console.log(ciclo);
-        this.props.guardarCiclo(ciclo)
-
+            //console.log(ciclo);
+            this.props.guardarCiclo(ciclo)
+        }else
+            swal({
+                title: 'La fecha de inicio debe ser menor a la fecha final',
+                type: 'error',
+                showConfirmButton: false,
+                timer: 2000,
+            })
     }
 
     handleChangeFechaInicio(date){

@@ -10,8 +10,8 @@ import { compose } from 'redux'
 import axios from 'axios';
 import { OffCanvas, OffCanvasMenu, OffCanvasBody } from 'react-offcanvas';
 import styles from './styles.css'
-import InfAdicionalModel1 from "./InfAdicionalModel1";
-import InfAdicionalModel2 from "./InfAdicionalModel2";
+//import InfAdicionalModel1 from "./componentesDesuso/InfAdicionalModel1";
+//import InfAdicionalModel2 from "./componentesDesuso/InfAdicionalModel2";
 import swal from "sweetalert2";
 
 const toastEvento=swal.mixin({
@@ -54,11 +54,12 @@ class ModuloConsultas extends Component {
         //this.filterByName = this.filterByName.bind(this);
         //this.filterList = this.filterList.bind(this);
         //this.filterByDisp = this.filterByDisp.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        this.showInfoDocente = this.showInfoDocente.bind(this);
+        //this.handleClick = this.handleClick.bind(this);
+        //this.showInfoDocente = this.showInfoDocente.bind(this);
         
     }
 
+    /*
     showInfoDocente = () =>
         this.handleClick()
 
@@ -85,7 +86,7 @@ class ModuloConsultas extends Component {
     
     filterList = 
         compose(this.filterByDay,this.filterByName,this.filterByCourse);
-        
+        */
     handleChange = (e) => {
         e.preventDefault()
         let property = e.target.id;
@@ -133,15 +134,25 @@ class ModuloConsultas extends Component {
     render() {
         const {resultados,ciclos,dias,filterBuscar} = this.state;
         return (
+            <div>
+                <h2>Modulo Consultas</h2>
+                        <SemesterSearchForm handleChange={this.handleChange} onClickForm={this.buscarClick}
+                                            ciclos={ciclos} ciclo={filterBuscar.semestreFilter}
+                                            dias={dias} dia={filterBuscar.diaFilter}/>
+                        <PanelResultado showDocenteInfo={this.showInfoDocente} handleChanges={f=>f} resultados={resultados} />
+            </div>
+        )
+    }
+}
+    
+export default ModuloConsultas
+/*
+
+
+                    <Button onClick={this.handleClick}>Panel Izquierdo</Button>
 
             <OffCanvas width={300} transitionDuration={300} isMenuOpened={this.state.isMenuOpened} position={"right"}>
                 <OffCanvasBody className={styles.bodyClass} style={{fontSize: '30px'}}>
-                    <h2>Modulo Consultas</h2>
-                    {/*<Button onClick={this.handleClick}>Panel Izquierdo</Button>*/}
-                    <SemesterSearchForm handleChange={this.handleChange} onClickForm={this.buscarClick}
-                                        ciclos={ciclos} ciclo={filterBuscar.semestreFilter}
-                                        dias={dias} dia={filterBuscar.diaFilter}/>
-                    <PanelResultado showDocenteInfo={this.showInfoDocente} handleChanges={f=>f} resultados={resultados} />
                 </OffCanvasBody>
                 <OffCanvasMenu className={styles.menuClass}>
                     <Panel bsStyle="primary" className={"infoClass"}>
@@ -157,9 +168,4 @@ class ModuloConsultas extends Component {
                     </Panel>
                 </OffCanvasMenu>
             </OffCanvas>
-
-        )
-    }
-}
-    
-export default ModuloConsultas
+*/
