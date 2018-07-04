@@ -114,11 +114,18 @@ class VistaDocente extends Component {
         //console.log(this.props);
     }
     buscarImagen= (profesor) =>{
-        switch (profesor.genero){
-            case "M":  this.state.foto=fotoHombre; break;
-            case "F": this.state.foto=fotoMujer; break;
-            default: this.state.foto="";
-        }
+        console.log(profesor);
+        let urlfoto=profesor.foto;
+        let foto;
+        if(urlfoto==='-' || urlfoto==='')
+            switch (profesor.genero){
+                case "M":  foto=fotoHombre; break;
+                case "F": foto=fotoMujer; break;
+                default: foto="";
+            }
+        else
+            foto=urlfoto;
+        this.setState({foto: foto});
     }
 
     changeDHEditable = () => {
