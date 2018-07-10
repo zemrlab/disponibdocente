@@ -46,12 +46,15 @@ class ModuloConsultas extends Component {
 
     buscarClick = ()=>{
         api.post('secretaria/buscar',this.state.filterBuscar).then(res =>{
-            this.setState({resultados:res.data})
+            this.setState({resultados:res.data.resultado})
             console.log(res.data)
-            if(res.data.length===0)
-                toastEvento({type: "error", title: "NO SE ENCONTRE DATOS"})
+            if(res.data.estadoBusqueda)
+                if(res.data.resultado.length===0)
+                    toastEvento({type: "error", title: "NO SE ENCONTRE DATOS"})
+                else
+                    toastEvento({type: "success", title: "BUSQUEDA EXITOSA"})
             else
-                toastEvento({type: "success", title: "BUSQUEDA EXITOSA"})
+                toastEvento({type: "warning", title: "BUSQUEDA NO ADMITIDA"})
         })
     }
     componentDidMount(){
