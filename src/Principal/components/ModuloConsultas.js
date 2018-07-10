@@ -45,17 +45,28 @@ class ModuloConsultas extends Component {
     }
 
     buscarClick = ()=>{
-        api.post('secretaria/buscar',this.state.filterBuscar).then(res =>{
-            this.setState({resultados:res.data.resultado})
-            console.log(res.data)
-            if(res.data.estadoBusqueda)
-                if(res.data.resultado.length===0)
-                    toastEvento({type: "error", title: "NO SE ENCONTRE DATOS"})
+        let aux=Object.assign({},this.state.filterBuscar);
+        let estado=true;
+        if (aux.horaInicio !== '' && !Number(aux.horaInicio)){
+            toastEvento({type: "error", title: "TIPO NO PERMITIDO:HORA INICIO "});
+            estado=false;
+        }
+        if(aux.horaFin!=='' && !Number(aux.horaFin)){
+            toastEvento({type: "error", title: "TIPO NO PERMITIDO:HORA FIN"});
+            estado=false;
+        }
+        if(estado)
+            api.post('secretaria/buscar',this.state.filterBuscar).then(res =>{
+                this.setState({resultados:res.data.resultado})
+                console.log(res.data)
+                if(res.data.estadoBusqueda)
+                    if(res.data.resultado.length===0)
+                        toastEvento({type: "error", title: "NO SE ENCONTRE DATOS"})
+                    else
+                        toastEvento({type: "success", title: "BUSQUEDA EXITOSA"})
                 else
-                    toastEvento({type: "success", title: "BUSQUEDA EXITOSA"})
-            else
-                toastEvento({type: "warning", title: "BUSQUEDA NO ADMITIDA"})
-        })
+                    toastEvento({type: "warning", title: "BUSQUEDA NO ADMITIDA"})
+            })
     }
     componentDidMount(){
         api.get('curso/ciclos').then(res_ciclo => {
