@@ -108,14 +108,15 @@ class VistaSecretaria extends Component {
         const {guardarCiclo,borrarCiclo,editarCiclos,handleCiclos,confirmarCiclos}=this;
         return (
                 <div className="App">
-
-                    <Row>
-                        <Col mdOffset={10} md={2}>
-                            <Button href="http://siga-fisi.herokuapp.com/dashboard">VOLVER A MENU</Button>
-                        </Col>
-                    </Row>
                     <header className="App-header">
-                        <h1 className="App-title">Módulo Secretaria</h1>
+                        <Row>
+                            <Col mdOffset={3} md={6}>
+                                <h1 className="App-title">Módulo Secretaria</h1>
+                            </Col>
+                            <Col mdOffset={1} md={2}>
+                                <Button href="http://siga-fisi.herokuapp.com/dashboard">VOLVER A MENU</Button>
+                            </Col>
+                        </Row>
                     </header>
 
                     <Grid>
