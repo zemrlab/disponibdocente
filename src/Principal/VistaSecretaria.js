@@ -4,8 +4,8 @@ import PanelHistorial from "./components/PanelHistorial";
 import ModuloConsultas from "./components/ModuloConsultas";
 import { Grid, Col, Row } from 'react-bootstrap';
 import {Tabs, Tab,Button} from "react-bootstrap";
-import axios from 'axios';
 import swal from "sweetalert2";
+import api from "./componentsSpecials/api"
 
 const toastEvento=swal.mixin({
     toast: true,
@@ -25,18 +25,18 @@ class VistaSecretaria extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
+        api.get('curso/ciclos').then(res_ciclo => {
             this.setState({cicleros: res_ciclo.data})
         })
     }
 
     guardarCiclo=(ciclo)=>{
         ////console.log(ciclo);
-        axios.post('http://apidisponibilidad.herokuapp.com/curso/nuevociclo', ciclo)
+        api.post('http://apidisponibilidad.herokuapp.com/curso/nuevociclo', ciclo)
             .then(res => {
                 //console.log(res);
                 //console.log(res.data);
-                axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
+                api.get('curso/ciclos').then(res_ciclo => {
                     this.setState({cicleros: res_ciclo.data})
                 })
             })
@@ -62,7 +62,7 @@ class VistaSecretaria extends Component {
 
     editarCiclos= () =>{
         if (this.state.estadoCiclos) {
-            axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo =>{
+            api.get('curso/ciclos').then(res_ciclo =>{
                 this.setState(prevState => ({
                     estadoCiclos: !prevState.estadoCiclos,
                     cicleros: res_ciclo.data
@@ -86,7 +86,7 @@ class VistaSecretaria extends Component {
             cancelButtonText:'No',
         }).then((result)=>{
             if(result.value){
-                axios.post('https://apidisponibilidad.herokuapp.com/curso/ciclos-update-destroy',this.state.cicleros).then(res=>{
+                api.post('curso/ciclos-update-destroy',this.state.cicleros).then(res=>{
                     toastEvento({type:'success', title:'Actualizado con exito'})
                     this.setState({estadoCiclos:false})
                 }).catch( srror=> {
@@ -98,7 +98,7 @@ class VistaSecretaria extends Component {
                 )
             }
         })
-       // axios.post('https://apidisponibilidad.herokuapp.com/curso/ciclos-update-destroy',this.state.cicleros).catch(
+       // api.post('curso/ciclos-update-destroy',this.state.cicleros).catch(
 
         //)
     }

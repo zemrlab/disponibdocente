@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import logo from './media/teacher.svg';
 import './VistaDocente.css';
 import data from "./initialData/data.json";
@@ -14,6 +13,7 @@ import PDFPanel from './components/PDFPanel';
 import fotoHombre from './media/imageHombre.png';
 import fotoMujer from './media/ImagenMujer.jpg';
 import swal from "sweetalert2"
+import api from "./componentsSpecials/api"
 
 import {Tabs, Tab} from "react-bootstrap";
 
@@ -73,16 +73,16 @@ class VistaDocente extends Component {
     }
 
     async componentDidMount(){
-        axios.get('https://apidisponibilidad.herokuapp.com/curso/ciclos').then(res_ciclo => {
+        api.get('curso/ciclos').then(res_ciclo => {
             this.setState({cicleros:res_ciclo.data,ciclo:res_ciclo.data[0].id_ciclo,estadoCiclo:!res_ciclo.data[0].estado})
             console.log(res_ciclo)
-            axios.get(`https://apidisponibilidad.herokuapp.com/docente/docente/${this.state.id}`).then(res=>{
+            api.get(`docente/docente/${this.state.id}`).then(res=>{
                 this.buscarImagen(res.data);
                 this.setState(({profesor:res.data}))
             }).then(
-                axios.get('https://apidisponibilidad.herokuapp.com/curso/cursos').then(resi =>{
+                api.get('curso/cursos').then(resi =>{
                     //console.log(this.state.ciclo)
-                    axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${res_ciclo.data[0].id_ciclo}`).then(res4 =>{
+                    api.get(`curso/docente/${this.state.id}/${res_ciclo.data[0].id_ciclo}`).then(res4 =>{
                         let selectedArray = res4.data.map(n=>n.id_curso)
                         this.setState(prevState => {
                             //console.log(prevState.coursesSelection)
@@ -93,16 +93,16 @@ class VistaDocente extends Component {
                     })
                     //this.setState(prevState => ({values: resi.data, coursesSelection:this.expandDong(prevState,resi.data)}));
                 })).then(
-                axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${res_ciclo.data[0].id_ciclo}`).then(res2 =>{
+                api.get(`disponibilidad/api/${this.state.id}/${res_ciclo.data[0].id_ciclo}`).then(res2 =>{
                     this.setState(prevState => ({
                         selection: JSON.parse(res2.data)
                     }));
                 }).then(
-                    axios.get(`https://apidisponibilidad.herokuapp.com/docente/docente/${this.state.id}`).then(res3 =>{
+                    api.get(`docente/docente/${this.state.id}`).then(res3 =>{
                         this.setState(prevState => ({
                             profesor: res3.data
                         }))})).then(
-                    axios.get(`https://apidisponibilidad.herokuapp.com/docente/docente/${this.state.id}`).then(resina =>{
+                    api.get(`docente/docente/${this.state.id}`).then(resina =>{
                         this.setState(prevState => ({
                             courseHistory:resina.data
                         }))
@@ -130,7 +130,7 @@ class VistaDocente extends Component {
 
     changeDHEditable = () => {
         if (this.state.dhenabled) {
-            axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${this.state.ciclo}`).then(res =>{
+            api.get(`disponibilidad/api/${this.state.id}/${this.state.ciclo}`).then(res =>{
                 this.setState(prevState => ({
                     selection: JSON.parse(res.data),
                     dhenabled: !prevState.dhenabled
@@ -150,7 +150,7 @@ class VistaDocente extends Component {
 
     changeMSEditable = () => {
         if (this.state.msenabled) {
-            axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${this.state.ciclo}`).then(res4 =>{
+            api.get(`curso/docente/${this.state.id}/${this.state.ciclo}`).then(res4 =>{
                 let selectedArray = res4.data.map(n=>n.id_curso)
                 this.setState(prevState => {
                     //console.log(prevState.coursesSelection)
@@ -203,7 +203,7 @@ class VistaDocente extends Component {
     }
 
     sendDisp = () => {
-        axios.post(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${this.state.ciclo}`,{selection:this.state.selection}).then(res =>{
+        api.post(`disponibilidad/api/${this.state.id}/${this.state.ciclo}`,{selection:this.state.selection}).then(res =>{
             this.setState(prevState => ({
                 dhenabled: !prevState.dhenabled
             }));
@@ -215,7 +215,7 @@ class VistaDocente extends Component {
     }
 
     sendMS = () => {
-        axios.post(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${this.state.ciclo}`,{coursesSelection:this.state.coursesSelection}).then(res =>{
+        api.post(`curso/docente/${this.state.id}/${this.state.ciclo}`,{coursesSelection:this.state.coursesSelection}).then(res =>{
             this.setState(prevState => ({
                     msenabled: !prevState.msenabled
                 })
@@ -228,7 +228,7 @@ class VistaDocente extends Component {
     }
 
     getPDF = () => {
-        axios.get(`https://apidisponibilidad.herokuapp.com/docente/pdf/${this.state.id}/${this.state.ciclo}`).then( response=>{
+        api.get(`docente/pdf/${this.state.id}/${this.state.ciclo}`).then( response=>{
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
@@ -255,7 +255,7 @@ class VistaDocente extends Component {
         let cicl = this.state.cicleros.find(c=>c.id_ciclo==ciclo)
         console.log(cicl)
         this.setState({ciclo:idciclo,estadoCiclo:!cicl.estado,dhenabled:false,msenabled:false});
-        axios.get(`https://apidisponibilidad.herokuapp.com/curso/docente/${this.state.id}/${idciclo}`).then(res4 =>{
+        api.get(`curso/docente/${this.state.id}/${idciclo}`).then(res4 =>{
             let selectedArray = res4.data.map(n=>n.id_curso)
             this.setState(prevState => {
                 //console.log(prevState.coursesSelection)
@@ -263,7 +263,7 @@ class VistaDocente extends Component {
                         Object.assign(n,{cursos:this.state.values[pos].cursos.filter(curso=>selectedArray.includes(curso.id_curso))})
                     )}})
         })
-        axios.get(`https://apidisponibilidad.herokuapp.com/disponibilidad/api/${this.state.id}/${idciclo}`).then(res2 =>{
+        api.get(`disponibilidad/api/${this.state.id}/${idciclo}`).then(res2 =>{
             this.setState(({
                 selection: JSON.parse(res2.data)
             }));
