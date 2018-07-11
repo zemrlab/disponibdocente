@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: `https://apidisponibilidad.herokuapp.com/`
+    baseURL: `https://sigap-disponibilidad-servicios.herokuapp.com/`
 });
 
 // FASE DESARROLLO
